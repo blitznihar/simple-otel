@@ -1,0 +1,9 @@
+on:
+  push:
+
+jobs:
+  disabled:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Disabled workflow"

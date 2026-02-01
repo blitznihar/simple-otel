@@ -1,0 +1,93 @@
+name: CI
+
+on:
+	push:
+		branches: [ main, master ]
+	pull_request:
+		branches: [ main, master ]
+
+jobs:
+	ci:
+		runs-on: ubuntu-latest
+		steps:
+			- name: Checkout
+				uses: actions/checkout@v4
+
+			- name: Detect projects
+				id: detect
+				run: |
+					echo "has_py=false" >> $GITHUB_OUTPUT
+					echo "has_go=false" >> $GITHUB_OUTPUT
+					echo "has_node_api=false" >> $GITHUB_OUTPUT
+					echo "has_node_ui=false" >> $GITHUB_OUTPUT
+					if [ -f todo-api-py/pyproject.toml ]; then echo "has_py=true" >> $GITHUB_OUTPUT; fi
+					if [ -f todo-api-go/go.mod ]; then echo "has_go=true" >> $GITHUB_OUTPUT; fi
+					if [ -f todo-api-nodejs/package.json ]; then echo "has_node_api=true" >> $GITHUB_OUTPUT; fi
+					if [ -f todo-ng-ui/package.json ]; then echo "has_node_ui=true" >> $GITHUB_OUTPUT; fi
+
+			- name: Set up Python 3.14
+				uses: actions/setup-python@v4
+				with:
+					python-version: '3.14'
+
+			- name: Python: syntax check (if project exists)
+				if: ${{ steps.detect.outputs.has_py == 'true' }}
+				run: |
+					echo 'Running Python syntax checks...'
+					python -m pip install --upgrade pip
+					py_files=$(git ls-files "todo-api-py/**/*.py" "todo-api-py/*.py" | tr '\n' ' ')
+					if [ -n "$py_files" ]; then
+						python -m py_compile $py_files
+						echo 'Python files compiled successfully.'
+					else
+						echo 'No Python files found, skipping.'
+					fi
+
+			- name: Set up Go
+				uses: actions/setup-go@v4
+				with:
+					go-version: '1.23.1'
+
+			- name: Go: run tests (if go.mod present)
+				if: ${{ steps.detect.outputs.has_go == 'true' }}
+				run: |
+					echo 'Running Go tests if any...'
+					if ls todo-api-go/*.go 1> /dev/null 2>&1; then
+						pushd todo-api-go
+						go test ./...
+						popd
+					else
+						echo 'No Go source files, skipping tests.'
+					fi
+
+			- name: Set up Node.js
+				uses: actions/setup-node@v4
+				with:
+					node-version: '18'
+
+			- name: Node: install & test for todo-api-nodejs (if package.json exists)
+				if: ${{ steps.detect.outputs.has_node_api == 'true' }}
+				working-directory: todo-api-nodejs
+				run: |
+					echo 'Installing Node dependencies for todo-api-nodejs...'
+					npm ci
+					if npm test --silent; then
+						echo 'Node tests passed.'
+					else
+						echo 'Node tests failed.'
+						exit 1
+					fi
+
+			- name: Node UI: install & test for todo-ng-ui (if package.json exists)
+				if: ${{ steps.detect.outputs.has_node_ui == 'true' }}
+				working-directory: todo-ng-ui
+				run: |
+					echo 'Installing Node dependencies for todo-ng-ui...'
+					npm ci
+					if npm test --silent; then
+						echo 'UI tests passed.'
+					else
+						echo 'UI tests failed.'
+						exit 1
+					fi
+

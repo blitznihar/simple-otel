@@ -1,0 +1,42 @@
+name: CI - Root Level
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify Go project folder
+        run: |
+          test -d todo-api-go
+          echo "todo-api-go exists"
+
+      - name: Verify spring project folder
+        run: |
+          test -d todo-api-spring
+          echo "todo-api-spring exists"
+
+      - name: Verify py project folder
+        run: |
+          test -d todo-api-py
+          echo "todo-api-py exists"
+
+      - name: Verify nodejs project folder
+        run: |
+          test -d todo-api-nodejs
+          echo "todo-api-nodejs exists"
+
+      - name: Verify ng project folder
+        run: |
+          test -d todo-ng-ui
+          echo "todo-ng-ui exists"
+
+      - name: Verify data project folder
+        run: |
+          test -d data
+          echo "data exists"
+
