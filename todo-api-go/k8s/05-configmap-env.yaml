@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: todo-api-go-env
+  namespace: simple-otel
+data:
+  PORT: "9000"
+
+  MONGO_URI: "mongodb://mongo:27017"
+  MONGO_DB: "simple_otel"
+  MONGO_COLLECTION: "todos"
+
+  OTEL_SERVICE_NAME: "todo-api-go"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector:4318"
+  OTEL_TRACES_SAMPLER: "always_on"

@@ -1,0 +1,224 @@
+[
+  {
+    "id": 1,
+    "title": "Do dishes",
+    "note": "That will be done by Gopher.",
+    "due_date": "2026-02-15T00:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 2,
+    "title": "Watch News",
+    "note": "Focus on current events topics.",
+    "created_at": "2026-01-20T09:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 3,
+    "title": "Buy groceries",
+    "note": "Milk, butter, and eggs.",
+    "due_date": "2026-02-02T18:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 4,
+    "title": "Walk the dog",
+    "note": "Evening walk around the park.",
+    "due_date": "2026-02-01T19:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 5,
+    "title": "Read book",
+    "note": "Finish chapter 5 of the novel.",
+    "created_at": "2026-01-25T14:30:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 6,
+    "title": "Pay bills",
+    "note": "Electricity and internet.",
+    "due_date": "2026-02-05T23:59:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 7,
+    "title": "Email manager",
+    "note": "Weekly status update.",
+    "created_at": "2026-01-28T08:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 8,
+    "title": "Schedule dentist",
+    "note": "Routine checkup next month.",
+    "is_complete": false
+  },
+  {
+    "id": 9,
+    "title": "Clean garage",
+    "note": "Organize tools and boxes.",
+    "due_date": "2026-02-20T16:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 10,
+    "title": "Call mom",
+    "note": "Catch up and plan visit.",
+    "created_at": "2026-01-30T18:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 11,
+    "title": "Backup laptop",
+    "note": "Run full backup to external drive.",
+    "is_complete": false
+  },
+  {
+    "id": 12,
+    "title": "Prepare presentation",
+    "note": "Slides for Monday meeting.",
+    "due_date": "2026-02-02T09:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 13,
+    "title": "Water plants",
+    "note": "Indoor succulents once a week.",
+    "created_at": "2026-01-18T07:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 14,
+    "title": "Fix bike",
+    "note": "Replace flat tire.",
+    "is_complete": false
+  },
+  {
+    "id": 15,
+    "title": "Plan trip",
+    "note": "Research hotels and flights.",
+    "due_date": "2026-03-01T00:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 16,
+    "title": "Update resume",
+    "note": "Add recent project details.",
+    "created_at": "2026-01-10T10:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 17,
+    "title": "Grocery: snacks",
+    "note": "Chips and fruit for guests.",
+    "is_complete": true
+  },
+  {
+    "id": 18,
+    "title": "Meditate",
+    "note": "10 minutes morning routine.",
+    "created_at": "2026-01-21T06:30:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 19,
+    "title": "Send invoices",
+    "note": "Invoice clients for January work.",
+    "due_date": "2026-02-03T12:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 20,
+    "title": "Laundry",
+    "note": "Bed sheets and towels.",
+    "is_complete": false
+  },
+  {
+    "id": 21,
+    "title": "Install updates",
+    "note": "OS and security patches.",
+    "created_at": "2026-01-22T20:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 22,
+    "title": "Organize photos",
+    "note": "Sort and tag recent trip pics.",
+    "is_complete": false
+  },
+  {
+    "id": 23,
+    "title": "Practice piano",
+    "note": "30 minutes scales and piece.",
+    "due_date": "2026-02-04T19:30:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 24,
+    "title": "Research recipe",
+    "note": "Try new curry recipe this weekend.",
+    "created_at": "2026-01-26T11:15:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 25,
+    "title": "Clean inbox",
+    "note": "Archive old messages and unsubscribe.",
+    "is_complete": true
+  },
+  {
+    "id": 26,
+    "title": "Build shelf",
+    "note": "Wood and tools in garage.",
+    "due_date": "2026-02-10T14:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 27,
+    "title": "Call plumber",
+    "note": "Leaky faucet in kitchen.",
+    "created_at": "2026-01-29T09:45:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 28,
+    "title": "Gym session",
+    "note": "Leg day workout.",
+    "due_date": "2026-02-02T07:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 29,
+    "title": "Submit taxes",
+    "note": "Gather receipts and forms.",
+    "is_complete": false
+  },
+  {
+    "id": 30,
+    "title": "Refill prescriptions",
+    "note": "Check expiration dates.",
+    "created_at": "2026-01-15T12:00:00Z",
+    "is_complete": true
+  },
+  {
+    "id": 31,
+    "title": "Learn JS testing",
+    "note": "Write unit tests for utils.",
+    "due_date": "2026-02-14T09:00:00Z",
+    "is_complete": false
+  },
+  {
+    "id": 32,
+    "title": "Volunteer signup",
+    "note": "Community clean-up event.",
+    "is_complete": false
+  },
+  {
+    "id": 33,
+    "title": "Host dinner",
+    "note": "Prepare menu and invite list.",
+    "due_date": "2026-02-07T18:30:00Z",
+    "is_complete": false
+  }
+]
