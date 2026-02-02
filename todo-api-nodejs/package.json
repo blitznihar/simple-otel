@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/bootstrap.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node src/bootstrap.js",
+    "dev": "nodemon src/bootstrap.js"
   },
   "keywords": [],
   "author": "",
