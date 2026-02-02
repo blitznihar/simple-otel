@@ -1,4 +1,3 @@
-````markdown
 # simple-otel
 
 [![CI](https://github.com/blitznihar/simple-otel/actions/workflows/ci.yml/badge.svg)](https://github.com/blitznihar/simple-otel/actions)
@@ -118,6 +117,4 @@ mongo --eval 'db.todos.find().limit(5).pretty()' localhost:27017
 - I can run the services and verify traces end-to-end, or update per-service README sections with exact env vars used by each implementation. Which would you like me to do next?
 
 License: See the [LICENSE](LICENSE) file.
-
-````
 
