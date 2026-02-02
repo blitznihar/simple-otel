@@ -5,8 +5,18 @@ import {
   goCreateTodo,
   goUpdateTodo,
 } from "../clients/goTodosClient.js";
+import { trace } from "@opentelemetry/api";
 
 export const router = express.Router();
+
+const tracer = trace.getTracer("manual");
+
+router.get("/ping", (req, res) => {
+  tracer.startActiveSpan("ping-span", (span) => {
+    span.end();
+    res.json({ ok: true });
+  });
+});
 
 router.get("/health", (req, res) => {
   res.json({ status: "ok" });

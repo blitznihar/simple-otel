@@ -14,15 +14,28 @@ data:
     processors:
       batch: {}
 
+    connectors:
+      spanmetrics:
+        # optional: tweak later
+        metrics_flush_interval: 15s
+
     exporters:
       otlp:
         endpoint: jaeger:4317
         tls:
           insecure: true
 
+      prometheus:
+        endpoint: 0.0.0.0:9464
+
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [otlp]
+          exporters: [otlp, spanmetrics]
+
+        metrics:
+          receivers: [spanmetrics]
+          processors: [batch]
+          exporters: [prometheus]
