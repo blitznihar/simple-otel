@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api-nodejs
+  namespace: simple-otel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-api-nodejs
+  template:
+    metadata:
+      labels:
+        app: todo-api-nodejs
+    spec:
+      containers:
+        - name: todo-api-nodejs
+          image: todo-api-nodejs:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 9100
+          envFrom:
+            - configMapRef:
+                name: todo-api-nodejs-env
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9100
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 9100
+            initialDelaySeconds: 15
+            periodSeconds: 10

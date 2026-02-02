@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: todo-api-nodejs-env
+  namespace: simple-otel
+data:
+  PORT: "9100"
+
+  # In-cluster call to GO service
+  TODO_GO_BASE_URL: "http://todo-api-go:9000"
+
+  OTEL_SERVICE_NAME: "todo-api-nodejs"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector:4318"
+  OTEL_TRACES_SAMPLER: "always_on"
